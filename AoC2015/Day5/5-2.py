@@ -14,10 +14,7 @@ def nice(word):
             messy = word.replace(chunk,' ',1)
             if chunk in messy:
                 condition2 = True
-    if condition1 and condition2:
-        return True
-    else:
-        return False
+    return condition1 and condition2
 
 for i in input:
     if nice(i):

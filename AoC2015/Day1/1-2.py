@@ -1,4 +1,4 @@
-input = [x for x in open('input.txt').read()]
+input = list(open('input.txt').read())
 
 floor = 0
 

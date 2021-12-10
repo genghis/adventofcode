@@ -1,8 +1,8 @@
-input = [x for x in open('input.txt').read()]
+input = list(open('input.txt').read())
 
 floor = 0
 
-for i,v in enumerate(input):
+for v in input:
     if v == ')':
         floor -= 1
     else:
