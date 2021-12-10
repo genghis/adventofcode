@@ -29,18 +29,16 @@ def execute_circuit(wire):
 
 def build_circuit(wire):
     circuit = []
-    if result[wire[0]]:
-        next_instruction = result[wire]
-        if 'AND' in wire or 'OR' in wire or 'LSHIFT' in wire or 'RSHIFT' in wire:
-            a,b,c = wire.split(' ')
-            circuit.extend(a)
-            circuit.extend(c)
-            build_circuit(next_instruction)
-        else:        
-            circuit.extend(result[wire])
-            build_circuit(next_instruction)
-    else:
+    if not result[wire[0]]:
         return circuit
+    next_instruction = result[wire]
+    if 'AND' in wire or 'OR' in wire or 'LSHIFT' in wire or 'RSHIFT' in wire:
+        a,b,c = wire.split(' ')
+        circuit.extend(a)
+        circuit.extend(c)
+    else:    
+        circuit.extend(next_instruction)
+    build_circuit(next_instruction)
 
 print(build_circuit('a'))
 # def parse(string):

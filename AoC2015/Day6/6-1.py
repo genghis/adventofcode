@@ -1,21 +1,15 @@
 input = [x.strip() for x in open('input6-1.txt')]
-grid = []
-
-for i in range(1000):
-    grid.append([])
+grid = [[] for _ in range(1000)]
 
 for row in grid:
-    for i in range(1000):
+    for _ in range(1000):
         row.append(0)
 
 def toggle(combined_list):
     for i in combined_list:
         y = i[0]
         x = i[1]
-        if grid[y][x] == 0:
-            grid[y][x] = 1
-        else:
-            grid[y][x] = 0
+        grid[y][x] = 1 if grid[y][x] == 0 else 0
 
 def turn_on(combined_list):
     for i in combined_list:
@@ -38,8 +32,8 @@ def parse(line):
     x1 = int(first_coord.split(',')[1])
     y2 = int(second_coord.split(',')[0])
     x2 = int(second_coord.split(',')[1])
-    listy = [x for x in range(y1,y2+1)]
-    listx = [x for x in range(x1,x2+1)]
+    listy = list(range(y1,y2+1))
+    listx = list(range(x1,x2+1))
     combined_list=[]
     for y in listy:
         for x in listx:
